@@ -22,9 +22,9 @@
     if (chaos) chaos.style.setProperty('--p', Math.min(1, prog(pain) * 1.4).toFixed(3));
     if (what) { const p = prog(what), n = Math.min(tiles.length, Math.floor(p * 9)); tiles.forEach((t, i) => t.classList.toggle('in', i < Math.max(1, n))); cnt.textContent = Math.max(1, n) + ' in call'; tiles[4].classList.toggle('up', p > .78); what.dataset.n = n; }
     if (how) { const p = prog(how); bar.style.setProperty('--p', p.toFixed(3)); steps.forEach((s, i) => s.classList.toggle('on', p > i * .3 + .05)); }
-    requestAnimationFrame(frame);
   };
-  requestAnimationFrame(frame);
+  let q = 0; const req = () => { if (!q) q = requestAnimationFrame(() => { q = 0; frame(); }); };
+  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req); req();
   // rotating speaker among joined tiles
   setInterval(() => { const live = tiles.filter((t, i) => i > 0 && t.classList.contains('in') && !t.classList.contains('up')); tiles.forEach(t => t.classList.remove('talk')); if (live.length) live[tick++ % live.length].classList.add('talk'); }, 1600);
   if (!FINE) return;

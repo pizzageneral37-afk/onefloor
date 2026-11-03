@@ -416,7 +416,7 @@ const journey = () => {
 /* ---------- input ---------- */
 let mx = 0, my = 0, smx = 0, smy = 0;
 addEventListener('pointermove', e => { mx = e.clientX / innerWidth * 2 - 1; my = e.clientY / innerHeight * 2 - 1; }, { passive: true });
-addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight, false); composer.setSize(innerWidth, innerHeight); });
+let lastW = innerWidth; addEventListener('resize', () => { if (MOBILE && innerWidth === lastW) return; lastW = innerWidth; camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight, false); composer.setSize(innerWidth, innerHeight); });
 
 /* ---------- day/night ---------- */
 const sky = [[0, '#0b1230', .05, .15], [6, '#ff9a5a', .9, .45], [9, '#fff1d6', 2.2, .7], [15, '#fff4e0', 2.4, .75], [18.5, '#ff8a3a', 1.1, .45], [21, '#14204a', .1, .2], [24, '#0b1230', .05, .15]];

@@ -57,7 +57,7 @@ h3{font:600 var(--h3)/1.3 var(--b);letter-spacing:-.01em}
 /* layout */
 section{position:relative;padding:clamp(96px,14vh,160px) var(--pad)}
 .cam{position:absolute;left:0;top:0;width:1px;height:1px}.cam-end{top:auto;bottom:0}
-.hero{min-height:100vh;display:flex;align-items:center;padding-top:120px}
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-top:120px}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(10,11,10,.92) 0%,rgba(10,11,10,.7) 34%,rgba(10,11,10,0) 58%)}
 .hero-c{position:relative;max-width:var(--max);width:100%;margin:0 auto}
 .panel{max-width:var(--max);margin:0 auto;padding:clamp(32px,4vw,56px);border-radius:28px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line);backdrop-filter:blur(14px)}
@@ -152,3 +152,8 @@ section{position:relative;padding:clamp(96px,14vh,160px) var(--pad)}
 .wm small{display:block;font:400 13px var(--b);color:var(--body);margin-top:2px}
 .wm li img{height:24px;width:24px;opacity:.9;flex:none}
 .wm li:has(img){display:flex;align-items:center;gap:12px}
+
+/* scrollfix: no live backdrop blur over the animated WebGL layer on touch devices */
+@media (pointer:coarse),(max-width:760px){.panel,.hero-c{backdrop-filter:none;-webkit-backdrop-filter:none}.hero .wl{margin-top:18px}}
+/* scrollfix: chaos tabs overflowed to 439px on 390px screens, widening the mobile viewport (sideways drift, zoomed-out layout) */
+.sec{overflow-x:clip}

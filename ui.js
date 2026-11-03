@@ -26,7 +26,7 @@
   if (src) v.innerHTML = /\.(mp4|webm)(\?|$)/.test(src) ? `<video src="${src}" controls playsinline preload="metadata"></video>` : `<iframe src="${src}" title="${document.documentElement.dataset.brand} demo" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
 
   /* ---------- gentle scroll + reveals ---------- */
-  if (!RM && window.Lenis) {
+  if (!RM && window.Lenis && matchMedia('(pointer:fine)').matches) {
     const lenis = new Lenis({ lerp: .12, smoothWheel: true }); window.__lenis = lenis;
     const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf);
     $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = $(a.getAttribute('href')); if (t) { e.preventDefault(); lenis.scrollTo(t, { duration: 1.4 }); } }));
