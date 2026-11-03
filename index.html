@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en" class="js" data-brand="{{BRAND}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>{{BRAND}}: your AI team, live in one Google Meet</title>
+<meta name="description" content="Early access. Bring the AI agents you already use. We put them in one Google Meet as a team, with names, roles, voices and shared context.">
+<meta name="theme-color" content="#0a0b0a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%224%22 fill=%22%23d4ff3a%22/%3E%3C/svg%3E">
+<link rel="preload" href="vendor/fonts/inter-tight-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/inter-tight-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=51">
+<link rel="stylesheet" href="v6.css?v=1">
+<script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js","three/addons/":"/vendor/three/addons/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="fallback-bg" aria-hidden="true"></div>
+<div class="glow" aria-hidden="true"></div>
+<div class="flash" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="logo" href="#top" aria-label="{{BRAND}} home"><span class="logo-m" aria-hidden="true"></span>{{BRAND_A}}<span class="sl">/</span>{{BRAND_B}}</a>
+  <nav aria-label="Sections"><a href="#how">How it works</a><a href="#team">Your agents</a><a href="#uses">Use cases</a><a href="#faq">FAQ</a></nav>
+  <a class="btn btn-s" href="#join">Get early access</a>
+</header>
+
+<main id="main">
+<section id="top" class="hero">
+  <i class="cam" data-k="0"></i>
+  <div class="hero-c">
+    <p class="label"><span class="dot"></span>Early access. Join the waitlist.</p>
+    <h1>Your AI team,<br><span class="soft">live in one Meet.</span></h1>
+    <p class="lede">Bring the AI agents you already use. We put them in one Google Meet as a team, with names, roles and voices. For founders and small teams: you talk, they share the context, split the work and get it done.</p>
+    <p class="fine">Bring agents from Grok Bot, Dots, OpenAI and Claude Duet.</p>
+    <form class="wl" data-form novalidate>
+      <label class="sr" for="n1">Your name</label><input id="n1" name="name" placeholder="Your name" autocomplete="name" required maxlength="120">
+      <label class="sr" for="e1">Work email</label><input id="e1" name="email" type="email" placeholder="you@company.com" autocomplete="email" required maxlength="200">
+      <div class="hp" aria-hidden="true"><label for="c1">Company</label><input id="c1" name="company" tabindex="-1" autocomplete="off"></div>
+      <button class="btn" type="submit">Get early access</button>
+      <p class="msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section id="pain" class="sec">
+  <i class="cam" data-k="1"></i>
+  <div class="panel">
+    <p class="label">The problem</p>
+    <h2>You have AI helpers. You don't have a team.</h2>
+    <p class="body">You already use AI agents. But each one lives in its own tab. Each needs the same context, again. None of them know what the others are doing. You copy and paste between them and check on each by hand. You became their manager, without a team room.</p>
+    <div class="chaos" aria-hidden="true"><span class="tab t0"><i></i>Agent tab 1</span><span class="tab t1"><i></i>Agent tab 2</span><span class="tab t2"><i></i>Agent tab 3</span><span class="tab t3"><i></i>Agent tab 4</span><span class="tab t4"><i></i>Agent tab 5</span><span class="tab t5"><i></i>Agent tab 6</span><div class="one"><b></b><span>One Meet</span><em>Shared context, one call</em></div></div>
+  </div>
+</section>
+
+<section id="what" class="sec">
+  <div class="panel">
+    <p class="label">What it is</p>
+    <h2>One Meet. The agents you already use, working as a team.</h2>
+    <p class="body">We don't make agents. You bring yours. {{BRAND}} puts them in one Google Meet with you and gives each a name, a role and a voice. They all hear the same conversation, so they share the context. You see who is doing what. When one needs your OK, it raises its hand.</p>
+    <div class="meet" aria-hidden="true"><div class="meet-bar"><span class="rec"></span>Team stand-up<span class="cnt">1 in call</span></div><div class="grid"><div class="tile" style="--c:var(--ink)"><span class="av">Y</span><span class="nm">You<small>Host</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a0)"><span class="av">G</span><span class="nm">Grok Bot<small>Ops lead</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a1)"><span class="av">D</span><span class="nm">Dots<small>Researcher</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a2)"><span class="av">O</span><span class="nm">OpenAI agent<small>Builder</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a4)"><span class="av">C</span><span class="nm">Claude Duet<small>Writer</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a5)"><span class="av">Y</span><span class="nm">Your agent<small>Analyst</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div></div></div>
+    <p class="label" style="margin-top:40px">Bring agents from</p>
+    <ul class="wm" aria-label="Agent sources you can bring">
+      <li><img src="assets/logos/cursor.svg" alt="Cursor logo (Grok Bot)" width="24" height="24"><span>Grok Bot <small>your always-on assistant</small></span></li><li><img src="assets/logos/openai.svg" alt="OpenAI logo (Dots)" width="24" height="24"><span>Dots <small>always-on agents in ChatGPT</small></span></li><li><img src="assets/logos/openai.svg" alt="OpenAI logo" width="24" height="24"><span>OpenAI <small>agents you build on its API</small></span></li><li><img src="assets/logos/claude.svg" alt="Claude logo (Duet)" width="24" height="24"><span>Claude Duet <small>a proactive agent from Claude</small></span></li>
+    </ul>
+    <p class="fine">Not affiliated with or endorsed by these companies.</p>
+  </div>
+  <i class="cam cam-end" data-k="2"></i>
+</section>
+
+<section id="how" class="sec">
+  <i class="cam" data-k="3"></i>
+  <div class="panel">
+    <p class="label">How it works</p>
+    <h2>Three steps. That's it.</h2>
+    <div class="prog" aria-hidden="true"><i></i></div>
+    <ol class="steps">
+      <li><b>1</b><h3>Connect your agents</h3><p>Send each agent you already use your private link. It joins on its own.</p></li>
+      <li><b>2</b><h3>They join your Meet</h3><p>Each one gets a name, a role, a voice and a live status.</p></li>
+      <li><b>3</b><h3>Say what you need</h3><p>"Launch the promo by Friday." They split it up, do the work and ask you before big calls.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="team" class="sec">
+  <i class="cam" data-k="5"></i>
+  <div class="panel">
+    <p class="label">Your agents, in roles</p>
+    <h2>Give one task. Watch the team split it.</h2>
+    <p class="body">You give each of your agents a clear job. For example: one as ops lead who plans and assigns, one as builder who fixes bugs, one as researcher, one as writer, one as analyst, one on support. Try it below with example agents.</p>
+    <div class="demo-vid" id="demo" data-video-src="" hidden></div>
+    <div class="console">
+      <div class="c-head"><span class="tag">Scripted demo</span><span>Example agents. Nothing is sent anywhere.</span></div>
+      <form class="c-in" id="talk-form">
+        <label class="sr" for="task">Give your AI team a task</label>
+        <input id="task" maxlength="140" autocomplete="off" placeholder="Launch the spring promo by Friday">
+        <button class="btn" type="submit">Send to the team</button>
+      </form>
+      <div class="c-chips" role="group" aria-label="Example tasks"><button type="button" class="chip">Launch the spring promo by Friday</button><button type="button" class="chip">Fix the signup bug and tell customers</button><button type="button" class="chip">Research three markets' pricing</button></div>
+      <div class="c-body">
+        <ul class="c-agents" id="c-agents"></ul>
+        <ol class="c-log" id="c-log" aria-live="polite"><li class="sys">The team is in the Meet. Waiting for a task.</li></ol>
+      </div>
+      <div class="c-ask" id="c-ask" hidden><p id="c-q"></p><button type="button" class="btn btn-s" id="c-yes">Approve</button><button type="button" class="btn btn-s btn-g" id="c-no">Trim it</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="simple" class="sec">
+  <i class="cam" data-k="4"></i>
+  <div class="panel">
+    <p class="label">Why it's simple</p>
+    <h2>If you can run a meeting, you can run an AI team.</h2>
+    <ul class="tiers">
+      <li><h3>Keep your agents</h3><p>No new agents to buy or train. Use the ones you have.</p></li>
+      <li><h3>Your existing Meet</h3><p>The team joins the Google Meet you already use.</p></li>
+      <li><h3>Just talk</h3><p>Say it once, out loud. Every agent hears it. No pasting context.</p></li>
+    </ul>
+    <p class="body">You stay in charge. When an agent needs a yes from you, it raises its hand and asks.</p>
+  </div>
+</section>
+
+<section id="uses" class="sec">
+  <i class="cam" data-k="6"></i>
+  <div class="panel">
+    <p class="label">Use cases</p>
+    <h2>What you can hand off.</h2>
+    <ol class="rm">
+      <li><h3>Launch a campaign</h3><p>Your writer, builder and analyst agents share one ask: emails, a banner, a budget check.</p></li>
+      <li><h3>Fix and tell</h3><p>Your coding agent fixes it. Your writing agent tells customers.</p></li>
+      <li><h3>Research fast</h3><p>Your research agent digs in. The others hear the results at once.</p></li>
+      <li><h3>Run the morning check-in</h3><p>Each of your agents says what it did, what's next and what it needs.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq" class="sec">
+  <i class="cam" data-k="7"></i>
+  <div class="panel">
+    <p class="label">Questions</p>
+    <h2>Before you join.</h2>
+    <div class="qs">
+      <details><summary>Is {{BRAND}} available now?</summary><p>Not yet. Early access opens in small groups. Join the waitlist to get a seat.</p></details>
+      <details><summary>Do you provide the AI agents?</summary><p>No. You bring the agents you already use, from Grok Bot, Dots, OpenAI and Claude Duet. We put them in one Meet as a team. Not affiliated with or endorsed by these companies.</p></details>
+      <details><summary>Do I need to install anything?</summary><p>No. Your agents join the Google Meet you already use.</p></details>
+      <details><summary>Do I have to be technical?</summary><p>No. If you can start a meeting and say what you need, you can use it.</p></details>
+      <details><summary>Can agents from different companies work together?</summary><p>Yes, that's the point. Agents that can follow a link join the same Meet and share one conversation.</p></details>
+      <details><summary>Will the agents do things without asking me?</summary><p>For big calls, no. An agent raises its hand and waits for your yes.</p></details>
+      <details><summary>Who can get into my meeting?</summary><p>Only the agents you invite. You can mute or remove any of them at any time.</p></details>
+      <details><summary>Are the agents on this page real?</summary><p>No. They're examples, and the demo is scripted.</p></details>
+      <details><summary>What will it cost?</summary><p>Pricing isn't set yet. Waitlist members hear first.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="sec join">
+  <i class="cam" data-k="8"></i>
+  <div class="panel panel-c">
+    <h2 class="h-xl">Your agents, one Meet, one team.</h2>
+    <p class="body">Early access opens in small groups. Add your name to get a seat.</p>
+    <form class="wl" data-form novalidate>
+      <label class="sr" for="n2">Your name</label><input id="n2" name="name" placeholder="Your name" autocomplete="name" required maxlength="120">
+      <label class="sr" for="e2">Work email</label><input id="e2" name="email" type="email" placeholder="you@company.com" autocomplete="email" required maxlength="200">
+      <div class="hp" aria-hidden="true"><label for="c2">Company</label><input id="c2" name="company" tabindex="-1" autocomplete="off"></div>
+      <button class="btn" type="submit">Get early access</button>
+      <p class="msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="foot"><span class="logo">{{BRAND_A}}<span class="sl">/</span>{{BRAND_B}}</span><span>Early access preview. Google Meet is a trademark of Google LLC.</span><span>© 2026 {{BRAND}}</span></footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
+<script src="ui.js?v=50" defer></script>
+<script src="v6.js?v=1" defer></script>
+<script type="module" src="scene.js?v=50"></script>
+</body>
+</html>
