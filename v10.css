@@ -1,6 +1,6 @@
 /* v10 shared: Space Grotesk / Space Mono, navy, panel-sourced light */
-@font-face{font-family:SG;src:url(/vendor/fonts/space-grotesk.ttf) format("truetype");font-weight:300 700;font-display:block}
-@font-face{font-family:SM;src:url(/vendor/fonts/space-mono.ttf) format("truetype");font-weight:400;font-display:block}
+@font-face{font-family:SG;src:url(./vendor/fonts/space-grotesk.ttf) format("truetype");font-weight:300 700;font-display:block}
+@font-face{font-family:SM;src:url(./vendor/fonts/space-mono.ttf) format("truetype");font-weight:400;font-display:block}
 :root{--b:SG,system-ui,sans-serif;--m:SM,ui-monospace,monospace;--mono:SM,monospace;--navy:#0A0F1F;--navy2:#0E1530;--cy:#4ff0ff;--vi:#b49bff;--li:#d4ff3a;--am:#ffb020}
 body{font-family:var(--b)}
 .hero{position:relative;isolation:isolate}

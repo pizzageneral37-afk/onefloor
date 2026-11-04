@@ -1,6 +1,6 @@
-@font-face{font-family:IT;src:url(/vendor/fonts/inter-tight-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:optional}
-@font-face{font-family:IT;src:url(/vendor/fonts/inter-tight-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:optional}
-@font-face{font-family:JBM;src:url(/vendor/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:optional}
+@font-face{font-family:IT;src:url(./vendor/fonts/inter-tight-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:optional}
+@font-face{font-family:IT;src:url(./vendor/fonts/inter-tight-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:optional}
+@font-face{font-family:JBM;src:url(./vendor/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:optional}
 :root{--bg:#0a0b0a;--panel:rgba(14,15,14,.92);--ink:#f3f2ed;--body:#c9c8c0;--mute:#9c9b93;--line:rgba(243,242,237,.10);--acc:#d4ff3a;--amber:#ffb020;
 --a0:#d4ff3a;--a1:#4ff0ff;--a2:#ffb020;--a3:#ff6a4d;--a4:#b49bff;--a5:#7dffb2;
 --b:IT,system-ui,sans-serif;--m:JBM,ui-monospace,monospace;--pad:clamp(20px,5vw,80px);--max:1200px;--r:20px;
