@@ -15,11 +15,11 @@ const canvas = document.getElementById('gl');
 const flashEl = document.querySelector('.flash');
 
 const AG = [
-  { n: 'Mara', r: 'OPS', p: 'PLATFORM A', c: '#d4ff3a', s: ['Launching campaign', 'Assigning 3 tasks', 'Checking deadlines'] },
-  { n: 'Dev', r: 'ENG', p: 'PLATFORM B', c: '#4ff0ff', s: ['Fixing signup form', 'Running tests', 'Deploying preview'] },
-  { n: 'Rui', r: 'RESEARCH', p: 'PLATFORM C', c: '#ffb020', s: ['Reading 14 sources', 'Comparing markets', 'Checking a claim'] },
-  { n: 'Sol', r: 'COPY', p: 'PLATFORM A', c: '#ff6a4d', s: ['Writing email', 'Reading draft aloud', 'Editing subject lines'] },
-  { n: 'Kit', r: 'ANALYTICS', p: 'PLATFORM D', c: '#b49bff', s: ['Building a chart', 'Pulling last month', 'Cleaning the data'] },
+  { n: 'Shuki', r: 'CHIEF OF STAFF', p: 'LIVE', c: '#d4ff3a', s: ['Drafting the deck', 'Assigning tasks', 'Checking deadlines'] },
+  { n: 'Dev', r: 'ENG', p: 'LIVE', c: '#4ff0ff', s: ['Fixing signup form', 'Running tests', 'Deploying preview'] },
+  { n: 'Rui', r: 'RESEARCH', p: 'LIVE', c: '#ffb020', s: ['Reading sources', 'Comparing markets', 'Checking a claim'] },
+  { n: 'Sol', r: 'COPY', p: 'LIVE', c: '#ff6a4d', s: ['Writing email', 'Reading draft aloud', 'Editing subject lines'] },
+  { n: 'Kit', r: 'ANALYTICS', p: 'LIVE', c: '#b49bff', s: ['Building a chart', 'Pulling last month', 'Cleaning the data'] },
   { n: 'Nova', r: 'NEW HIRE', p: 'YOUR AGENT', c: '#7dffb2', s: ['Joined the office', 'Saying hi in the room', 'Taking first task'] }
 ];
 
@@ -244,7 +244,7 @@ const drawS2 = t => {
     
     ctx.fillStyle = raised ? '#ffb020' : '#b8b6ac'; ctx.font = `23px IT, sans-serif`; ctx.fillText( (i === 5 ? (JT > 8 ? 'Saying hi in the room' : 'Joined · taking desk') : status[i]), x + 20, y + gh - 20);
     if (rv < 1) { ctx.restore(); ctx.fillStyle = a.c; ctx.fillRect(x, y + gh * rv - 2, gw, 4); }
-    if (raised) { ctx.font = `40px serif`; ctx.fillText('✋', x + gw - 62, y + 58 + Math.sin(t / 200) * 5); }
+    if (raised) { ctx.font = `40px serif`; ctx.fillText('', x + gw - 62, y + 58 + Math.sin(t / 200) * 5); }
   });
   if (hand) { const y = H - 84; ctx.fillStyle = '#1b1606'; rr(ctx, 34, y, W - 68, 56, 14); ctx.fill(); ctx.strokeStyle = '#ffb020'; ctx.lineWidth = 2; ctx.stroke(); ctx.fillStyle = '#ffb020'; ctx.font = `20px ${FONT}`; ctx.fillText('KIT RAISED A HAND · Budget looks 12% over. Approve or trim?', 56, y + 35); }
   S2.t.needsUpdate = true;
@@ -304,7 +304,7 @@ const orbs = AG.map((a, i) => {
 const handCard = (() => {
   const { ctx, c, t } = canvasTex(768, 220);
   ctx.fillStyle = 'rgba(20,16,4,.88)'; rr(ctx, 4, 4, 760, 212, 28); ctx.fill(); ctx.strokeStyle = '#ffb020'; ctx.lineWidth = 4; ctx.stroke();
-  ctx.font = `92px serif`; ctx.fillText('✋', 30, 140);
+  ctx.font = `92px serif`; ctx.fillText('', 30, 140);
   ctx.fillStyle = '#ffb020'; ctx.font = `26px ${FONT}`; ctx.fillText('KIT RAISED A HAND', 160, 72);
   ctx.fillStyle = '#eceae0'; ctx.font = `600 38px IT, sans-serif`; ctx.fillText('Budget looks 12% over.', 160, 128); ctx.fillText('Approve or trim?', 160, 176);
   const m = new THREE.Mesh(new THREE.PlaneGeometry(1.5, .43), new THREE.MeshBasicMaterial({ map: t, transparent: true, toneMapped: false, depthWrite: false, side: THREE.DoubleSide }));
@@ -416,7 +416,7 @@ const journey = () => {
 /* ---------- input ---------- */
 let mx = 0, my = 0, smx = 0, smy = 0;
 addEventListener('pointermove', e => { mx = e.clientX / innerWidth * 2 - 1; my = e.clientY / innerHeight * 2 - 1; }, { passive: true });
-let lastW = innerWidth; addEventListener('resize', () => { if (MOBILE && innerWidth === lastW) return; lastW = innerWidth; camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight, false); composer.setSize(innerWidth, innerHeight); });
+addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight, false); composer.setSize(innerWidth, innerHeight); });
 
 /* ---------- day/night ---------- */
 const sky = [[0, '#0b1230', .05, .15], [6, '#ff9a5a', .9, .45], [9, '#fff1d6', 2.2, .7], [15, '#fff4e0', 2.4, .75], [18.5, '#ff8a3a', 1.1, .45], [21, '#14204a', .1, .2], [24, '#0b1230', .05, .15]];

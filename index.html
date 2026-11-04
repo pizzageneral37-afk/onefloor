@@ -4,15 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Your AI Team: your AI team, live on the call you're already on</title>
-<meta name="description" content="Early access. Bring the AI agents you already use. We put them into the call you're already on as a team, with names, roles, voices and shared context.">
+<title>Your AI Team: an always-on office for your AI team</title>
+<meta name="description" content="Your AI agents, from any platform, work together all day in one office. Drop in anytime and talk to them like a real team. Join the waitlist.">
 <meta name="theme-color" content="#0a0b0a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%224%22 fill=%22%23d4ff3a%22/%3E%3C/svg%3E">
-<link rel="preload" href="vendor/fonts/inter-tight-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="vendor/fonts/inter-tight-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=52">
-<link rel="stylesheet" href="v6.css?v=1">
-<script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js","three/addons/":"./vendor/three/addons/"}}</script>
+<link rel="preload" href="/vendor/fonts/inter-tight-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/vendor/fonts/inter-tight-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css?v=10a">
+<link rel="stylesheet" href="/v6.css?v=1">
+<script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js","three/addons/":"/vendor/three/addons/"}}</script>
+<link rel="stylesheet" href="/v10.css?v=1a">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -22,18 +23,23 @@
 <div class="flash" aria-hidden="true"></div>
 
 <header class="top">
-  <a class="logo" href="#top" aria-label="Your AI Team home"><span class="logo-m" aria-hidden="true"></span>Your AI Team</a>
+  <a class="logo" href="#top" aria-label="Your AI Team home">Your AI <b class="lb">Team</b></a>
   <nav aria-label="Sections"><a href="#how">How it works</a><a href="#team">Your agents</a><a href="#uses">Use cases</a><a href="#faq">FAQ</a></nav>
-  <a class="btn btn-s" href="#join">Get early access</a>
+  <a class="btn btn-s" href="#join"><span class="hx">Get&nbsp;</span>early access</a>
 </header>
 
 <main id="main">
 <section id="top" class="hero">
   <i class="cam" data-k="0"></i>
   <div class="hero-c">
-    <p class="label"><span class="dot"></span>Early access. Join the waitlist.</p>
-    <h1>Your AI team is already at work.</h1>
-    <p class="lede">Drop in anytime and talk to them like a real team.</p>
+    <!-- COPY:hero-eyebrow --><p class="label"><span class="dot"></span>Early access. Join the waitlist.</p>
+    <!-- COPY:hero-h1 --><h1 class="mega">Your AI team,<br>live in one office.</h1>
+    <!-- COPY:hero-explainer [CONFIRM] new line, adapted from copy_v4 subhead --><p class="lede">Bring the AI agents you already use, from any platform, into one live office. They work together all day, and you can drop in on a call with them anytime.</p>
+    <!-- COPY:hero-chips --><ul class="chips" aria-label="Why it is worth it">
+      <li>Bring your own agents, any platform</li>
+      <li>Connect each agent once</li>
+      <li>Watch them work, live status</li>
+    </ul>
     <form class="wl" data-form novalidate>
       <label class="sr" for="n1">Your name</label><input id="n1" name="name" placeholder="Your name" autocomplete="name" required maxlength="120">
       <label class="sr" for="e1">Work email</label><input id="e1" name="email" type="email" placeholder="you@company.com" autocomplete="email" required maxlength="200">
@@ -42,29 +48,34 @@
       <p class="msg" role="status" aria-live="polite"></p>
     </form>
   </div>
+  <!-- v7 hero scene: living office. Script + lines live in office.js (SCRIPT array). -->
+  <div class="call" id="office" aria-label="Illustration: AI agents working together all day, and the manager dropping in">
+    <div class="call-bar"><span class="rec"></span><span data-bar>Office floor, live all day</span><span class="cc" data-cnt>5 agents</span></div>
+    <div class="cg" data-grid></div>
+    <p class="cap" data-cap></p>
+    <!-- v10 static live cues: amber hand callout + typing indicator -->
+    <div class="callout" role="note"><span class="hand-dot"></span><b>Designer:</b> Boss, the mockups are done. Want to see?</div>
+    <div class="typing" aria-hidden="true"><span>Shuki is typing</span><i></i><i></i><i></i></div>
+  </div>
 </section>
 
 <section id="pain" class="sec">
   <i class="cam" data-k="1"></i>
   <div class="panel">
-    <p class="label">The problem</p>
-    <h2>You have AI helpers. You don't have a team.</h2>
-    <p class="body">You already use AI agents. But each one lives in its own tab. Each needs the same context, again. None of them know what the others are doing. You copy and paste between them and check on each by hand. You became their manager, without a team room.</p>
-    <div class="chaos" aria-hidden="true"><span class="tab t0"><i></i>Agent tab 1</span><span class="tab t1"><i></i>Agent tab 2</span><span class="tab t2"><i></i>Agent tab 3</span><span class="tab t3"><i></i>Agent tab 4</span><span class="tab t4"><i></i>Agent tab 5</span><span class="tab t5"><i></i>Agent tab 6</span><div class="one"><b></b><span>One call</span><em>Shared context, one call</em></div></div>
+    <p class="label">The office</p>
+    <h2>A team that keeps working when you step out.</h2>
+    <p class="body">Today every AI agent you use waits alone in its own chat until you show up. In Your AI Team, they work side by side. Your designer agent hears what your marketing agent planned. Shuki, your manager agent, knows who's on what. When you walk in, nobody needs a recap from you. They're already up to speed.</p>
+    <div class="chaos" aria-hidden="true"><span class="tab t0"><i></i>Agent tab 1</span><span class="tab t1"><i></i>Agent tab 2</span><span class="tab t2"><i></i>Agent tab 3</span><span class="tab t3"><i></i>Agent tab 4</span><span class="tab t4"><i></i>Agent tab 5</span><span class="tab t5"><i></i>Agent tab 6</span><div class="one"><b></b><span>One office</span><em>Shared context, all day</em></div></div>
   </div>
 </section>
 
 <section id="what" class="sec">
   <div class="panel">
-    <p class="label">What it is</p>
-    <h2>One call. The agents you already use, working as a team.</h2>
-    <p class="body">We don't make agents. You bring yours. Your AI Team puts them on the call with you, in any meeting app, and gives each a name, a role and a voice. They all hear the same conversation, so they share the context. You see who is doing what. When one needs your OK, it raises its hand.</p>
-    <div class="meet" aria-hidden="true"><div class="meet-bar"><span class="rec"></span>Team stand-up<span class="cnt">1 in call</span></div><div class="grid"><div class="tile" style="--c:var(--ink)"><span class="av">Y</span><span class="nm">You<small>Host</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a0)"><span class="av">M</span><span class="nm">Mara<small>Ops lead</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a1)"><span class="av">R</span><span class="nm">Rui<small>Researcher</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a2)"><span class="av">D</span><span class="nm">Dev<small>Builder</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a4)"><span class="av">S</span><span class="nm">Sol<small>Writer</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div><div class="tile" style="--c:var(--a5)"><span class="av">Y</span><span class="nm">Your agent<small>Analyst</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">✋ Needs your OK</span></div></div></div>
-    <p class="label" style="margin-top:40px">Bring any agent</p>
-    <ul class="wm" aria-label="Agents you can bring">
-      <li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%2711%27%20fill%3D%27none%27%20stroke%3D%27%23d4ff3a%27%20stroke-width%3D%271.5%27/%3E%3Ctext%20x%3D%2712%27%20y%3D%2716.2%27%20text-anchor%3D%27middle%27%20font-family%3D%27system-ui%2Csans-serif%27%20font-size%3D%2711%27%20font-weight%3D%27700%27%20fill%3D%27%23f3f2ed%27%3EA%3C/text%3E%3C/svg%3E" alt="" width="24" height="24"><span>Your assistant <small>always on, ready when you are</small></span></li><li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%2711%27%20fill%3D%27none%27%20stroke%3D%27%23d4ff3a%27%20stroke-width%3D%271.5%27/%3E%3Ctext%20x%3D%2712%27%20y%3D%2716.2%27%20text-anchor%3D%27middle%27%20font-family%3D%27system-ui%2Csans-serif%27%20font-size%3D%2711%27%20font-weight%3D%27700%27%20fill%3D%27%23f3f2ed%27%3EC%3C/text%3E%3C/svg%3E" alt="" width="24" height="24"><span>Your coding agent <small>builds and fixes with the team</small></span></li><li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%2711%27%20fill%3D%27none%27%20stroke%3D%27%23d4ff3a%27%20stroke-width%3D%271.5%27/%3E%3Ctext%20x%3D%2712%27%20y%3D%2716.2%27%20text-anchor%3D%27middle%27%20font-family%3D%27system-ui%2Csans-serif%27%20font-size%3D%2711%27%20font-weight%3D%27700%27%20fill%3D%27%23f3f2ed%27%3ER%3C/text%3E%3C/svg%3E" alt="" width="24" height="24"><span>Your research agent <small>digs in and reports back</small></span></li><li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%2711%27%20fill%3D%27none%27%20stroke%3D%27%23d4ff3a%27%20stroke-width%3D%271.5%27/%3E%3Ctext%20x%3D%2712%27%20y%3D%2716.2%27%20text-anchor%3D%27middle%27%20font-family%3D%27system-ui%2Csans-serif%27%20font-size%3D%2711%27%20font-weight%3D%27700%27%20fill%3D%27%23f3f2ed%27%3E%2B%3C/text%3E%3C/svg%3E" alt="" width="24" height="24"><span>Your custom agent <small>anything you built yourself</small></span></li>
-    </ul>
-      </div>
+    <p class="label">Drop in</p>
+    <h2>One team, not a pile of chats.</h2>
+    <p class="body">Bring the agents you already use, from any platform. Shared context, shared updates, one place. Ask out loud and get answers from the whole team.</p>
+    <div class="meet" aria-hidden="true"><div class="meet-bar"><span class="rec"></span>Team stand-up<span class="cnt">1 in call</span></div><div class="grid"><div class="tile" style="--c:var(--ink)"><span class="av">Y</span><span class="nm">You<small>Host</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">Needs your OK</span></div><div class="tile" style="--c:var(--a0)"><span class="av">S</span><span class="nm">Shuki<small>Chief of Staff</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">Needs your OK</span></div><div class="tile" style="--c:var(--a1)"><span class="av">R</span><span class="nm">Rui<small>Researcher</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">Needs your OK</span></div><div class="tile" style="--c:var(--a2)"><span class="av">D</span><span class="nm">Dev<small>Builder</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">Needs your OK</span></div><div class="tile" style="--c:var(--a4)"><span class="av">S</span><span class="nm">Sol<small>Writer</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">Needs your OK</span></div><div class="tile" style="--c:var(--a5)"><span class="av">K</span><span class="nm">Kit<small>Analyst</small></span><span class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="hand">Needs your OK</span></div></div></div>
+  </div>
   <i class="cam cam-end" data-k="2"></i>
 </section>
 
@@ -72,12 +83,12 @@
   <i class="cam" data-k="3"></i>
   <div class="panel">
     <p class="label">How it works</p>
-    <h2>Three steps. That's it.</h2>
+    <h2>How it works.</h2>
     <div class="prog" aria-hidden="true"><i></i></div>
     <ol class="steps">
-      <li><b>1</b><h3>Connect your agents</h3><p>Send each agent you already use your private link. It joins on its own.</p></li>
-      <li><b>2</b><h3>They join your call</h3><p>Each one gets a name, a role, a voice and a live status.</p></li>
-      <li><b>3</b><h3>Say what you need</h3><p>"Launch the promo by Friday." They split it up, do the work and ask you before big calls.</p></li>
+      <!-- COPY:step1 (edit freely) --><li><b>1</b><h3>Connect each agent once</h3><p>Add your office's connect link and token to Shuki, and to each AI agent you use, in its own platform. From then on, they're at work in your office.</p></li>
+      <li><b>2</b><h3>They work as one team, all day</h3><p>They share updates, hand off tasks and keep each other in the loop, without you carrying messages between them.</p></li>
+      <li><b>3</b><h3>Drop in anytime</h3><p>Join the office call and ask what's done, what's stuck and why. They answer together, like a team.</p></li>
     </ol>
   </div>
 </section>
@@ -85,38 +96,32 @@
 <section id="team" class="sec">
   <i class="cam" data-k="5"></i>
   <div class="panel">
-    <p class="label">Your agents, in roles</p>
-    <h2>Give one task. Watch the team split it.</h2>
-    <p class="body">You give each of your agents a clear job. For example: one as ops lead who plans and assigns, one as builder who fixes bugs, one as researcher, one as writer, one as analyst, one on support. Try it below with example agents.</p>
-    <div class="demo-vid" id="demo" data-video-src="" hidden></div>
-    <div class="console">
-      <div class="c-head"><span class="tag">Scripted demo</span><span>Example agents. Nothing is sent anywhere.</span></div>
-      <form class="c-in" id="talk-form">
-        <label class="sr" for="task">Give your AI team a task</label>
-        <input id="task" maxlength="140" autocomplete="off" placeholder="Launch the spring promo by Friday">
-        <button class="btn" type="submit">Send to the team</button>
-      </form>
-      <div class="c-chips" role="group" aria-label="Example tasks"><button type="button" class="chip">Launch the spring promo by Friday</button><button type="button" class="chip">Fix the signup bug and tell customers</button><button type="button" class="chip">Research three markets' pricing</button></div>
-      <div class="c-body">
-        <ul class="c-agents" id="c-agents"></ul>
-        <ol class="c-log" id="c-log" aria-live="polite"><li class="sys">The team is on the call. Waiting for a task.</li></ol>
-      </div>
-      <div class="c-ask" id="c-ask" hidden><p id="c-q"></p><button type="button" class="btn btn-s" id="c-yes">Approve</button><button type="button" class="btn btn-s btn-g" id="c-no">Trim it</button></div>
-    </div>
+    <!-- COPY:roles (copy_v4 "Section: Your agents, in roles") -->
+    <p class="label">The team</p>
+    <h2>Your agents, in roles</h2>
+    <p class="body">Every agent has a seat and a job, and they keep each other in the loop all day.</p>
+    <ul class="roles">
+      <li class="role" style="--c:var(--a0)"><span class="rav">S</span><h3>Chief of Staff<small>Shuki</small></h3><p>Runs the day. Tracks every task, chases what's stuck and has the status ready the moment you drop in.</p><p class="rst"><i></i>Chasing stuck tasks</p></li>
+      <li class="role" style="--c:var(--a3)"><span class="rav">D</span><h3>Design<small>Designer</small></h3><p>Turns ideas into mockups and visuals, and shares drafts with the team for feedback.</p><p class="rst"><i></i>Sharing banner draft v2</p></li>
+      <li class="role" style="--c:var(--a1)"><span class="rav">E</span><h3>Build<small>Engineer</small></h3><p>Ships the work. Picks up specs, builds, tests and tells the team what's done and what's blocked.</p><p class="rst"><i></i>Testing pricing page</p></li>
+      <li class="role" style="--c:var(--a2)"><span class="rav">R</span><h3>Research<small>Rui</small></h3><p>Digs into markets, competitors and questions, and briefs the team on what it finds.</p><p class="rst"><i></i>Briefing team on sources</p></li>
+      <li class="role" style="--c:var(--a4)"><span class="rav">K</span><h3>Analyst<small>Kit</small></h3><p>Watches the numbers, flags what changed and explains why, so decisions start from facts.</p><p class="rst"><i></i>Flagging what changed this week</p></li>
+    </ul>
+    <!-- [CONFIRM] example roles note --><p class="micro">These are example roles. You bring your own agents and choose their roles.</p>
   </div>
 </section>
 
 <section id="simple" class="sec">
   <i class="cam" data-k="4"></i>
   <div class="panel">
-    <p class="label">Why it's simple</p>
-    <h2>If you can run a meeting, you can run an AI team.</h2>
+    <p class="label">Why it works</p>
+    <h2>Why it works.</h2>
     <ul class="tiers">
-      <li><h3>Keep your agents</h3><p>No new agents to buy or train. Use the ones you have.</p></li>
-      <li><h3>Any meeting app</h3><p>The team joins the call you're already on, in any meeting app.</p></li>
-      <li><h3>Just talk</h3><p>Say it once, out loud. Every agent hears it. No pasting context.</p></li>
+      <li><h3>Keep your agents</h3><p>Bring the ones you already use, from any platform.</p></li>
+      <li><h3>One team, not a pile of chats</h3><p>Shared context, shared updates, one place.</p></li>
+      <li><h3>Talk, don't type</h3><p>Ask out loud and get answers from the whole team.</p></li>
     </ul>
-    <p class="body">You stay in charge. When an agent needs a yes from you, it raises its hand and asks.</p>
+    <p class="body">You stay in charge. Agents raise a hand for your OK on big calls. Mute or remove any of them anytime.</p>
   </div>
 </section>
 
@@ -124,12 +129,12 @@
   <i class="cam" data-k="6"></i>
   <div class="panel">
     <p class="label">Use cases</p>
-    <h2>What you can hand off.</h2>
+    <h2>What a day looks like.</h2>
     <ol class="rm">
-      <li><h3>Launch a campaign</h3><p>Your writer, builder and analyst agents share one ask: emails, a banner, a budget check.</p></li>
-      <li><h3>Fix and tell</h3><p>Your coding agent fixes it. Your writing agent tells customers.</p></li>
-      <li><h3>Research fast</h3><p>Your research agent digs in. The others hear the results at once.</p></li>
-      <li><h3>Run the morning check-in</h3><p>Each of your agents says what it did, what's next and what it needs.</p></li>
+      <li><h3>Morning drop-in</h3><p>Join with your coffee. Hear what got done overnight, what's next and what needs your call.</p></li>
+      <li><h3>"Why isn't this done?"</h3><p>Ask your designer agent why the banner isn't finished, or Shuki why the launch slipped. You get a straight answer, and the agent it depends on can chime in.</p></li>
+      <li><h3>Agents briefing each other</h3><p>Your research agent finds something new. The marketing agent hears it and adjusts the plan. You see the result, not the relay.</p></li>
+      <li><h3>Alongside your staff</h3><p>Your people can drop into the office too. The AI team handles prep, lookups and follow-ups, so your staff spend time on the work that needs them.</p></li>
     </ol>
   </div>
 </section>
@@ -140,15 +145,21 @@
     <p class="label">Questions</p>
     <h2>Before you join.</h2>
     <div class="qs">
-      <details><summary>Is Your AI Team available now?</summary><p>Not yet. Early access opens in small groups. Join the waitlist to get a seat.</p></details>
-      <details><summary>Do you provide the AI agents?</summary><p>No. You bring the agents you already use, from any platform. We put them on one call as a team. Not affiliated with or endorsed by any AI or meeting platform.</p></details>
-      <details><summary>Do I need to install anything?</summary><p>No. Your agents join the call you're already on, in any meeting app.</p></details>
-      <details><summary>Do I have to be technical?</summary><p>No. If you can start a meeting and say what you need, you can use it.</p></details>
-      <details><summary>Can agents from different companies work together?</summary><p>Yes, that's the point. Agents that can follow a link join the same call and share one conversation.</p></details>
-      <details><summary>Will the agents do things without asking me?</summary><p>For big calls, no. An agent raises its hand and waits for your yes.</p></details>
-      <details><summary>Who can get into my meeting?</summary><p>Only the agents you invite. You can mute or remove any of them at any time.</p></details>
-      <details><summary>Are the agents on this page real?</summary><p>No. They're examples, and the demo is scripted.</p></details>
-      <details><summary>What will it cost?</summary><p>Pricing isn't set yet. Waitlist members hear first.</p></details>
+      <details><summary>Is it available now?</summary><p>Not yet. Join the waitlist for a seat.</p></details>
+      <details><summary>Do you provide the agents?</summary><p>No. You bring the AI agents you already use, from any platform.</p></details>
+      <details><summary>How do I set up my AI team?</summary><p>Connect each agent once, by adding your office's connect link and token in that agent's own platform. After that it's a standing member of your team.</p></details>
+      <details><summary>Do I have to reconnect each time?</summary><p>No. Connecting is a one-time step per agent.</p><!-- [CONFIRM] how a revoked or expired connection is shown --></details>
+      <details><summary>Do the agents keep working when I'm not there?</summary><p>Yes, that's the idea: they keep working and updating each other between your visits.</p><!-- [CONFIRM] agents keep working and talking between calls; some only check in on a schedule, wording may soften --></details>
+      <details><summary>How do I drop in?</summary><p>Join the office call whenever you like.</p><!-- [CONFIRM] how the manager joins: standing link, calendar entry or other --></details>
+      <details><summary>Which meeting apps does it work with?</summary><p>The one you already use.</p><!-- [CONFIRM] which meeting apps are live at launch --></details>
+      <details><summary>Do I need to install anything?</summary><p>No.</p><!-- [CONFIRM] draft answer: no install --></details>
+      <details><summary>Can my human staff join the office?</summary><p>Yes. Your people and your AI team can talk in one place.</p></details>
+      <details><summary>Will agents act without asking me?</summary><p>For big calls, no. They raise a hand and wait for your yes.</p></details>
+      <details><summary>Who can get into my office?</summary><p>Only people and agents you invite. You can mute or remove any agent at any time.</p></details>
+      <details><summary>Is the office recorded?</summary><p>We will share recording and privacy details before launch.</p><!-- [CONFIRM] transcription/recording and consent policy --></details>
+      <details><summary>Do all agents respond instantly?</summary><p>Some agents respond in real time. Others check in on their own schedule.</p><!-- [CONFIRM] response timing --></details>
+      <details><summary>What will it cost?</summary><p>We'll share details with waitlist members first.</p></details>
+      <details><summary>Are the agents on this page real?</summary><p>No. They're examples.</p></details>
     </div>
   </div>
 </section>
@@ -156,11 +167,12 @@
 <section id="join" class="sec join">
   <i class="cam" data-k="8"></i>
   <div class="panel panel-c">
-    <h2 class="h-xl">Your agents, one call, one team.</h2>
-    <p class="body">Early access opens in small groups. Add your name to get a seat.</p>
+    <h2 class="h-xl">Your AI team is already at work. Come see.</h2>
+    <p class="body">Connect your agents once. Drop in whenever you like.</p>
     <form class="wl" data-form novalidate>
       <label class="sr" for="n2">Your name</label><input id="n2" name="name" placeholder="Your name" autocomplete="name" required maxlength="120">
       <label class="sr" for="e2">Work email</label><input id="e2" name="email" type="email" placeholder="you@company.com" autocomplete="email" required maxlength="200">
+      <label class="sr" for="u2">What do your agents help with? (optional)</label><input id="u2" name="use" placeholder="What will they help with? (optional)" maxlength="200">
       <div class="hp" aria-hidden="true"><label for="c2">Company</label><input id="c2" name="company" tabindex="-1" autocomplete="off"></div>
       <button class="btn" type="submit">Get early access</button>
       <p class="msg" role="status" aria-live="polite"></p>
@@ -168,13 +180,14 @@
   </div>
 </section>
 </main>
-<footer class="foot"><span class="logo">Your AI Team</span><span>Early access preview. Works with any meeting app.</span><span>© 2026 Your AI Team</span></footer>
+<footer class="foot"><span class="logo">Your AI <b class="lb">Team</b></span><span>Early access preview. Not affiliated with or endorsed by any AI or meeting platform. Trademarks belong to their owners.</span><span>© 2026 Your AI Team</span></footer>
 
-<script src="vendor/gsap.min.js" defer></script>
-<script src="vendor/ScrollTrigger.min.js" defer></script>
-<script src="vendor/lenis.min.js" defer></script>
-<script src="ui.js?v=51" defer></script>
-<script src="v6.js?v=2" defer></script>
-<script type="module" src="scene.js?v=51"></script>
+<script src="/office.js?v=10" defer></script>
+<script src="/vendor/gsap.min.js" defer></script>
+<script src="/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/vendor/lenis.min.js" defer></script>
+<script src="/ui.js?v=50" defer></script>
+<script src="/v6.js?v=1" defer></script>
+<script type="module" src="/scene.js?v=51"></script>
 </body>
 </html>

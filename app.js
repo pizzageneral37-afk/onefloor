@@ -16,14 +16,19 @@
     if (!d.name.trim()) { msg.textContent = 'Please add your name.'; f.classList.add('err'); return f.name.focus(); }
     if (!re.test(d.email.trim())) { msg.textContent = "That email doesn't look right."; f.classList.add('err'); return f.email.focus(); }
     btn.disabled = true; msg.textContent = 'Saving your spot…';
-    f.innerHTML = '<p class="ok" role="status">Waitlist opens soon. Thanks for your interest, check back shortly.</p>';
+    try {
+      const r = await fetch('/api/waitlist', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...d, ...meta }) });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.error || 'Something went wrong.');
+      f.innerHTML = '<p class="ok" role="status"><span aria-hidden="true">✓</span> ' + (j.duplicate ? "You're already on the list. We'll be in touch." : "You're on the list. We'll email you when your seat opens.") + '</p>';
+    } catch (x) { msg.textContent = x.message; f.classList.add('err'); btn.disabled = false; }
   }));
   const v = $('#demo'), src = v && v.dataset.videoSrc;
   if (src) v.innerHTML = /\.(mp4|webm)(\?|$)/.test(src) ? `<video src="${src}" controls playsinline preload="metadata"></video>` : `<iframe src="${src}" title="${document.documentElement.dataset.brand} demo" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
 
   /* ---------- data (illustrative) ---------- */
   const A = [
-    { n: 'Mara', c: '#b9a6ff', s: ['Launching campaign', 'Assigning 3 tasks', 'Updating the plan', 'Checking deadlines'] },
+    { n: 'Shuki', c: '#b9a6ff', s: ['Drafting Q4 deck, 62%', 'Assigning 3 tasks', 'Updating the plan', 'Checking deadlines'] },
     { n: 'Dev', c: '#5fe0c4', s: ['Fixing signup form', 'Running tests', 'Deploying preview', 'Reviewing a change'] },
     { n: 'Rui', c: '#f6c56c', s: ['Reading 14 sources', 'Comparing markets', 'Summarizing findings', 'Checking a claim'] },
     { n: 'Sol', c: '#ff94b0', s: ['Writing email', 'Drafting landing copy', 'Reading draft aloud', 'Editing subject lines'] },
@@ -31,9 +36,9 @@
     { n: 'Ari', c: '#c8e47a', s: ['Triaging inbox', 'Replying to a customer', 'Tagging 9 tickets', 'Escalating one issue'] }
   ];
   const LOG = [
-    ['Mara', 'assigned "pricing page" to Sol'], ['Dev', 'pushed fix for the signup form'], ['Rui', 'found 3 new sources on onboarding'],
+    ['Shuki', 'assigned "pricing page" to Sol'], ['Dev', 'pushed fix for the signup form'], ['Rui', 'found 3 new sources on onboarding'],
     ['Sol', 'drafted 2 subject lines'], ['Kit', 'raised a hand: budget question'], ['Ari', 'closed 4 support tickets'],
-    ['Mara', 'moved launch checklist to 80%'], ['Dev', 'preview deploy is ready'], ['Sol', 'is reading the email draft aloud'],
+    ['Shuki', 'moved launch checklist to 80%'], ['Dev', 'preview deploy is ready'], ['Sol', 'is reading the email draft aloud'],
     ['Rui', 'flagged one claim as unverified'], ['Kit', 'chart for last month is ready'], ['Ari', 'escalated one refund to you']
   ];
   const col = n => (A.find(a => a.n === n) || {}).c || '#fff';
@@ -111,7 +116,7 @@
     const base = Date.now() - 4 * 60e3;
     dwLog.innerHTML = FEED[i].slice(0, 3).map((t, k) => `<li style="animation-delay:${k * 120}ms"><span class="t">${new Date(base + k * 80e3).toTimeString().slice(0, 5)}</span>${t}</li>`).join('');
     const asks = { 4: ['Budget looks 12% over. Approve or trim?', 'Answer: trim it'], 5: ['Refund request over the usual limit. Approve?', 'Answer: approve'] };
-    if (asks[i]) { dwAsk.hidden = false; $('#dw-q').textContent = '✋ ' + asks[i][0]; $('#dw-ans').textContent = asks[i][1]; $('#dw-ans').disabled = false; } else dwAsk.hidden = true;
+    if (asks[i]) { dwAsk.hidden = false; $('#dw-q').textContent = '' + asks[i][0]; $('#dw-ans').textContent = asks[i][1]; $('#dw-ans').disabled = false; } else dwAsk.hidden = true;
   };
   $$('.dw-a').forEach(b => b.addEventListener('click', () => showAgent(+b.dataset.i)));
   tiles.forEach((t, i) => t.addEventListener('click', () => { showAgent(i); if (innerWidth < 900) $('#demo-w').scrollIntoView({ behavior: RM ? 'auto' : 'smooth' }); }));
